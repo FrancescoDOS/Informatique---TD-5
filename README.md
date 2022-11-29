@@ -1,4 +1,4 @@
-# Informatique---TD-5
+# Informatique-TD-5
 "Project a plusieurs"
 
 python file with the following tools:
