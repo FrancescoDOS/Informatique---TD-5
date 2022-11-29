@@ -1,0 +1,7 @@
+1. Transformer un texte de manière à ce que l'on enlève tous les caractères spéciaux ET qu'on enlève les accents. On voudra aussi transformer un texte et l'écrire en majuscules.
+
+2. On voudra donner la possibilité à l'utilisateur de prendre deux textes en entrée et de savoir si au moins une phrase d'un texte a été recopiée dans l'autre texte. 
+
+3. un utilisateur doit pouvoir, avec votre code, réaliser facilement plusieurs traitements sur un texte qui serait écrit dans un fichier texte présent sur votre ordinateur à un autre endroit. On veut que l'utilisateur puisse, sans rééxécuter le code, rentrer le chemin du fichier (ou des fichiers) en entrée du programme. 
+
+4. On veut pouvoir chiffrer un texte sans espace et sans caractères spéciaux et en majuscules à l'aide du code de César (on aura besoin de chercher sur internet et d'utiliser le code ASCII). On voudra aussi pouvoir chiffrer un texte avec le chiffre de Vigenere (pareillement, on n'hésitera pas à aller sur internet).
