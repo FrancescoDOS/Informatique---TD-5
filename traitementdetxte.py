@@ -1,7 +1,8 @@
 from unidecode import unidecode
 from random import randint
 
-# =============================================================================================
+
+# =========================================================================================================================================
 
 
 def ask_file():
@@ -23,11 +24,10 @@ def rewrite_file(file_path,txt):
         f.write(txt)
 
 def fetch_txt(file_path):
-    with open(file_path,"r+") as f:
-        txt = "".join(i for i in f.readlines())
+    with open(file_path,"r+") as f: txt = "".join(i for i in f.readlines())
     return txt
 
-def fetch_file_name(file_path):
+def fetch_file_name(file_path): 
     path = file_path.split("\\")
     return path[-1]
 
