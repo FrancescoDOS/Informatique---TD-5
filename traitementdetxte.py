@@ -24,7 +24,7 @@ def rewrite_file(file_path,txt):
 
 def fetch_txt(file_path):
     with open(file_path,"r+") as f:
-        txt = f.readlines()
+        txt = "".join(i for i in f.readlines())
     return txt
 
 def fetch_file_name(file_path):
@@ -35,7 +35,7 @@ def fetch_file_name(file_path):
 
 
 def normalize_text(file_path):
-    txt = "".join(i for i in fetch_txt(file_path))
+    txt = fetch_txt(file_path)
     txt = unidecode(txt)
     txt = ''.join(i for i in txt if i.isalnum())
     txt = txt.upper()
@@ -46,7 +46,7 @@ def is_in_text(file_path):
     search_txt = input("Enter the phrase you would like to search for:\n")
     txt = fetch_txt(file_path)
     if search_txt in txt:
-        print(f"A copy of that text has been found in {fetch_file_name(file_path)}")
+        print(f"\nA copy of that text has been found in {fetch_file_name(file_path)}")
     else:
         print(f"No match found in {fetch_file_name(file_path)} for:\n{search_txt}")
 
@@ -55,12 +55,12 @@ def edit_file(file_path): # TO DO
 
 def cesar_encrypt(file_path):
     txt, key, temp_txt = fetch_txt(file_path), randint(1,25), str()
-    try:
-        for char in txt:
-            temp_txt += str(chr(ord(char)+int(key)))
-    except Exception: pass
+    for ch in txt:
+        temp_txt += str(chr(ord(ch)+key))
+  
+    print(temp_txt)
     rewrite_file(file_path, temp_txt)
-    print(f"Caesar cipher done!\n{fetch_file_name(file_path)} has been encrypted using this key:\n{key}")
+    print(f"\nCaesar cipher done!\n{fetch_file_name(file_path)} has been encrypted using this key:\n{key}")
 
 def vigenere_encrypt(file_path): # TO DO
     pass
@@ -77,7 +77,7 @@ def encrypt_file_select(file_path):
 def tool_select_menu():
 
     tool_select = int()
-    while tool_select not in range(1,4):
+    while tool_select not in range(1,5):
         
         tool_select = int(input("\
 1 - Normalize Text\n\
@@ -101,6 +101,8 @@ operations = {
 def main():
     print("\033c")
     tool_select = tool_select_menu()
+    print("\033c")
     file = ask_file()
     operations[tool_select](file)
+    print("\nFinished operations\n")
 main()
