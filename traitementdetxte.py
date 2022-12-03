@@ -13,6 +13,8 @@ def ask_file():
     except FileNotFoundError:
         print("Yikes!\nThe file path you inserted was not found\nPlease insert a file path of an existing '.txt' file\n\n")
         return
+    
+    print("\nFile accepted\n")
     return file_path
 
 def rewrite_file(file_path,txt):
@@ -22,7 +24,7 @@ def rewrite_file(file_path,txt):
 
 def fetch_txt(file_path):
     with open(file_path,"r+") as f:
-        txt = f.readlines
+        txt = f.readlines()
     return txt
 
 def fetch_file_name(file_path):
@@ -33,12 +35,12 @@ def fetch_file_name(file_path):
 
 
 def normalize_text(file_path):
-    txt = fetch_txt(file_path)
+    txt = "".join(i for i in fetch_txt(file_path))
     txt = unidecode(txt)
     txt = ''.join(i for i in txt if i.isalnum())
     txt = txt.upper()
     rewrite_file(file_path, txt)
-    print(f"{fetch_file_name(file_path)} has been normalized to UNIDECODE TEXT and CAPITAL LETTERS") 
+    print(f"{fetch_file_name(file_path)} has been normalized to UNIDECODE TEXT and CAPITAL LETTERS\n") 
 
 def is_in_text(file_path):
     search_txt = input("Enter the phrase you would like to search for:\n")
@@ -101,5 +103,4 @@ def main():
     tool_select = tool_select_menu()
     file = ask_file()
     operations[tool_select](file)
-    main()
 main()
