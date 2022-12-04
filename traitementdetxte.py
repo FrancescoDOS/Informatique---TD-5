@@ -55,7 +55,7 @@ def edit_file(file_path): # TO DO
     pass
 
 def cesar_encrypt(file_path):
-    txt, key, temp_txt = fetch_txt(file_path), randint(1,25), str()
+    txt, key, temp_txt = fetch_txt(file_path), randint(-25,25), str()
     for ch in txt:
         temp_txt += str(chr(ord(ch)+key))
   
@@ -83,7 +83,7 @@ def tool_select_menu():
         
         tool_select = int(input("\
 1 - Normalize Text\n\
-2 - Check text sample in text\n\
+2 - Check text sample in file\n\
 3 - Edit file\n\
 4 - Encrypt files\n\n\
 Enter the tool you want to use (1 - 4):\n\
